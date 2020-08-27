@@ -29,7 +29,6 @@ double TransitCalc::unlimited7Price() {
     // round to nearest cent
     double pricePer = round((totalPrice / (double) rides) * 100) / 100.0;
     return pricePer;
-
 }
 
 double* TransitCalc::getRidePrices(){
@@ -63,6 +62,9 @@ void TransitCalc::getBestFare(){
     cout << "You should get the " << pass[ind] << " option at $" << costs[ind] << " per ride." << endl;
 }
 
+TransitCalc::~TransitCalc(){   
+}
+
 int main() {
     int days;
     int rides;
@@ -79,9 +81,9 @@ int main() {
 
     bool disc = (discount == 1); 
 
-    TransitCalc* test = new TransitCalc(days, rides, disc);
+    TransitCalc test(days, rides, disc);
 
-    double* prices = test->getRidePrices();
+    double* prices = test.getRidePrices();
 
     // Print 1 day
     cout << "Price per ride with Pay-per-ride: $" << prices[0] << endl;
@@ -90,11 +92,11 @@ int main() {
     cout << "Price per ride with 7-day Unlimited: $";
     cout << fixed;
     cout << setprecision(2);
-    cout << test->unlimited7Price() << endl;
+    cout << test.unlimited7Price() << endl;
 
     // Print 30 day
     cout << "Price per ride with 30-day Unlimited: $" << prices[2] << endl;
 
     // Recommendation
-    test->getBestFare();
+    test.getBestFare();
 }

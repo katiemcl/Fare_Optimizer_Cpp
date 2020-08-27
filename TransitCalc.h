@@ -10,9 +10,9 @@ namespace std{
     class TransitCalc {
     
     public: 
-        // intialize variables for number days, rides, and if eligible for discount
         TransitCalc(int singleDays, int numRides, bool discount);
-        
+        ~TransitCalc();
+
         // returns price per ride with 7 day unlimited option
         double unlimited7Price();
         
