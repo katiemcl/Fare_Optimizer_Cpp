@@ -64,10 +64,20 @@ void TransitCalc::getBestFare(){
 }
 
 int main() {
+    int days;
+    int rides;
+    int discount;
 
-    int days = 2;
-    int rides = 5;
-    bool disc = true;
+    cout << "Number of days? ";
+    cin >> days;
+
+    cout << "Number of rides? ";
+    cin >> rides;
+
+    cout << "Eligible for discount? (0/1 = F/T) ";
+    cin >> discount;
+
+    bool disc = (discount == 1); 
 
     TransitCalc* test = new TransitCalc(days, rides, disc);
 
